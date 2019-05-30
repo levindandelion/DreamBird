@@ -1,0 +1,26 @@
+/**app.wxss**/
+view {
+  box-sizing: border-box;
+}
+.bd-t,.bd-b{
+  position:relative;
+}
+.bd-t::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  border-top:1px solid #eee;
+  transform: scaleY(0.5);
+  width:100%;
+}
+
+.bd-b::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:0;
+  border-top:1px solid #eee;
+  transform: scaleY(0.5);
+  width:100%;
+}

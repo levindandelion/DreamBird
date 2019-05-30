@@ -1,0 +1,35 @@
+<view class='container' >
+  <view class='city'>
+    <view 
+    class="item {{curtIndex === index? 'active':''}}"
+    style="top:{{y}}rpx;"
+    wx:for="{{cities}}" 
+    wx:key="item"
+    data-index="{{index}}"
+    bindtouchmove="touchMove" bindtouchend="touchEnd" bindlongpress='longTap'
+    >
+      <view class='bd-b item-content'>
+      <view class='item-name'>
+        <view class='item-icon'><van-icon name="location-o" /></view>
+        <view class='name'>{{item}}</view>
+      </view>
+      <view 
+        class='item-delete' 
+        data-index="{{index}}" 
+        catchtap='delCityItem' 
+        hidden='{{cities.length<2}}'
+      >
+        <van-icon name="close" />
+      </view>
+      </view>
+    </view>
+    
+  </view>
+  <view class='box'>
+    <view class='tips'>长按并拖拽排序</view>
+    <view class='add' catchtap='goToSearch'>
+      <van-icon name="plus" color="#eee" size='60rpx'/>
+    </view>
+  </view>
+
+</view>

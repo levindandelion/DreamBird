@@ -1,0 +1,196 @@
+.container{
+  position: relative;
+  height: 100vh;
+}
+
+
+.bg{
+  position: absolute;
+  left:0;
+  right: 0;
+  top:0;
+  bottom:0;
+  margin:auto;
+  transform:rotateY(180deg);
+  opacity: 0.08;
+}
+
+/* 头部 */
+.userinfo-wrapper{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  background: #fff;
+}
+.userinfo{
+  display: flex;
+  justify-content:space-between;
+  padding: 20rpx;
+  align-items: center;
+  
+}
+.userinfo .config{
+  font-size: 40rpx;
+  font-weight: bold;
+  width: 80rpx;
+  height:80rpx;
+  position: relative;
+}
+.userinfo .config .btn{
+  position: absolute;
+  height: 120rpx;
+  width: 120rpx;
+  right: -20rpx;
+  top: -20rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+.userinfo .config .btn:active{
+  background:#eee;
+}
+.avatar-box{
+  font-size: 0;
+}
+.avatar{
+  display:inline-block;
+  width:80rpx;
+  height: 80rpx;
+  border-radius:50%;
+  overflow: hidden;
+}
+button::after{ border: none; }
+.scope-button{
+  padding: 0;
+  position: absolute;
+  background:transparent;
+
+}
+.username{
+  font-size:32rpx;
+}
+.swiper-wrapper{
+  padding-top:120rpx;
+  height: 100%;
+}
+.swiper{
+  height: 100%;
+}
+.swiper swiper-item{
+  overflow-y:auto;
+}
+.swiper swiper-item::-webkit-scrollbar {
+  color: transparent;
+}
+/* 实时天气 */
+.current-weather{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  padding:20rpx 0;
+  height:304rpx;
+}
+.current-weather-left{
+  font-size:36rpx;
+  text-align: center;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+.current-weather-left .tmp-cloud{
+  font-size:28rpx;
+}
+.current-weather-left .tmp-cloud-img,.current-weather-left .tmp-cloud-text{
+  display: inline-block;
+  vertical-align:middle;
+}
+.current-weather-left .tmp-cloud-img{
+  width:40rpx;
+  height: 40rpx;
+  margin-left:10rpx;
+}
+.current-weather-left .time{
+  font-size:20rpx;
+}
+
+.current-weather-right{
+  font-size:24rpx;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+/* 24小时天气预报 */
+.weather{
+  padding:20rpx 10rpx;
+
+}
+.weather .title{
+  font-size: 32rpx;
+  padding:0 20rpx 20rpx 20rpx;
+}
+.weather-content{
+  font-size: 28rpx;
+  white-space: nowrap;
+  /* height: 254rpx; */
+  
+}
+
+::-webkit-scrollbar {
+  width:0;
+  height:0;
+  color: transparent;
+}
+.weather-item{
+  display: inline-block;
+  padding:0 20rpx;
+}
+.weather-item .info{
+  padding:6rpx 0;
+}
+.hours-weather .weather-item .time,.hours-weather .weather-item .info-img{
+  text-align: center;
+}
+.weather-item .info-img image{
+  width:40rpx;
+  height:40rpx;
+  vertical-align:middle;
+}
+.weather-item .info-img text{
+  vertical-align:middle;
+}
+/* 近7天天气预报 */
+.future-weather .weather-item .info-img .item{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 生活指数 */
+.life-item{
+  display: flex;
+  align-items: center;
+}
+.life-item-img image{
+  width:100rpx;
+  height:100rpx;
+}
+.life-item-img{
+  padding:0 20rpx;
+}
+.life-item-info{
+  padding:10rpx 0;
+}
+.life-item-info .type{
+  font-size:32rpx;
+}
+.life-item-info .txt{
+  font-size:28rpx;
+}
+
+/* footer */
+.footer{
+  font-size: 20rpx;
+  padding: 10rpx;
+  text-align: center;
+}

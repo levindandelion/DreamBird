@@ -1,0 +1,134 @@
+<!--index.wxml-->
+<view class='container'>
+  <image class='bg' mode="widthFix" src='/images/bird2.png'></image>
+
+  
+<!-- 用户信息 -->
+  <view class='userinfo-wrapper bd-b'>
+    <view class='userinfo'>
+        <view class='avatar-box' catchtap='showCodeImg'>
+          <open-data class='avatar' type="userAvatarUrl"></open-data>
+        </view>
+        <button hidden='{{scopeUserInfo}}' class='avatar scope-button' open-type="getUserInfo"
+        bindgetuserinfo="bindGetUserInfo"
+        ></button >
+        <open-data class='username' type="userNickName"></open-data>
+        <view class='config' >
+          <view class='btn' catchtap='goToConfig'>+</view>
+        </view>
+    </view>
+  </view>
+  <!-- 天气 -->
+  <view class='swiper-wrapper'>
+    <swiper
+    class='swiper'
+    indicator-dots='{{true}}'
+    indicator-active-color="#0f0"
+    >
+      <block wx:for="{{weather}}" wx:key="{{item.basic.location}}">
+        <swiper-item>
+      
+          <!-- 实时天气 -->
+          <view class='current-weather'>
+            <view class='current-weather-left'>
+              <view><!-- 占位 --></view>
+              <view>
+                <view>{{item.basic.location}}</view>
+                <view class='tmp-cloud'>
+                  <text class='tmp-cloud-text'>{{item.now.tmp}}℃ | {{item.now.cond_txt}}</text>
+                  <image class='tmp-cloud-img' src="{{item.now.imgUrl}}"></image>
+                </view>
+              </view>
+              <view class='time'>更新时间：{{item.update.loc}}</view>
+            </view>
+            <view class='current-weather-right'>
+              <view class='item'>体感温度：{{item.now.fl}}℃</view>
+              <view class='item'>风向/风力：{{item.now.wind_dir}}/{{item.now.wind_sc}}级</view>
+              <view class='item'>相对湿度：{{item.now.hum}}</view>
+              <view class='item'>降水量：{{item.now.pcpn}}mm</view>
+              <view class='item'>大气压强：{{item.now.pres/10}}kpa</view>
+              <view class='item'>能见度：{{item.now.vis}}km</view>
+            </view>
+          </view>
+          <!-- 24小时天气预报 -->
+          <view class='weather hours-weather bd-t'>
+            <view class='title'>24小时天气预报</view>
+            <scroll-view 
+            scroll-x="{{true}}" 
+            class='weather-content'>
+              <view
+                class='weather-item'
+                wx:for="{{item.hourly}}"
+                wx:key="subItem"
+                wx:for-item="subItem" id="{{subItem.time}}">
+                <view class='info time'>{{subItem.hour}}</view>
+                <view class='info info-img'>
+                  <image src="{{subItem.imgUrl}}"></image>
+                  <text>{{subItem.cond_txt}}</text></view>
+                <view class='info'>温度：{{subItem.tmp}}℃</view>
+                <view class='info'>风向：{{subItem.wind_dir}}</view>
+                <view class='info'>风力：{{subItem.wind_sc}}级</view>
+              </view>
+            </scroll-view>
+            
+          </view>
+          <!-- 近7天天气预报 -->
+          <view class='weather future-weather bd-t'>
+            <view class='title'>近7天天气预报</view>
+            <scroll-view 
+            scroll-x="{{true}}" 
+            class='weather-content'>
+              <view
+                class='weather-item'
+                wx:for="{{item.daily_forecast}}"
+                wx:key="subItem"
+                wx:for-item="subItem" id="{{subItem.date}}">
+                <view class='info time'>{{subItem.date}}</view>
+                <view class='info info-img'>
+                  <view class='item'>白天：</view>
+                  <image class='item' src="{{subItem.imgUrl_d}}"></image>
+                  <view class='item'>{{subItem.cond_txt_d}}</view>
+                </view>
+                <view class='info info-img'>
+                  <view class='item'>夜间：</view>
+                  <image class='item' src="{{subItem.imgUrl_n}}"></image>
+                  <view class='item'>{{subItem.cond_txt_n}}</view>
+                </view>
+                <view class='info'>温度：{{subItem.tmp_min}}-{{subItem.tmp_max}}℃</view>
+                <view class='info'>风向：{{subItem.wind_dir}}</view>
+                <view class='info'>风力：{{subItem.wind_sc}}级</view>
+              </view>
+            </scroll-view>
+            
+          </view>
+          <!-- 生活指数 -->
+          <view class='weather bd-t'>
+            <view class='title'>生活指数</view>
+            <view 
+            class='life-content'>
+              <view
+                class='life-item'
+                wx:for="{{item.lifestyle}}"
+                wx:key="subItem"
+                wx:for-item="subItem">
+                <view class='life-item-img'><image src="{{subItem.imgUrl}}"></image></view>
+                <view class='life-item-info'>
+                  <view class='type'>{{subItem.typeTxt}}：{{subItem.brf}}</view>
+                  <view class='txt'>{{subItem.txt}}</view>
+                </view>
+                
+              </view>
+            </view>
+            
+          </view>
+          <view class='footer bd-t'>develped by levin</view>
+
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  
+</view>
+
+
+

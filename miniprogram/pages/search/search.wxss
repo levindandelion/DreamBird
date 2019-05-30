@@ -1,0 +1,153 @@
+.container{
+  padding-top:120rpx;
+  height:100vh;
+  position:relative;
+}
+::-webkit-scrollbar {
+  width:0;
+  height:0;
+  color: transparent;
+}
+.search-wrapper{
+  padding:20rpx;
+  background:#eee;
+  display: flex;
+  align-items: center;
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+}
+.search-wrapper .cancel{
+  font-size:28rpx;
+  width:60rpx;
+  height:80rpx;
+  margin-left:10rpx;
+  position:relative;
+}
+
+.cancel .txt{
+  position: absolute;
+  z-index:2;
+  top:0;
+  right:-20rpx;
+  width:96rpx;
+  height:78rpx;
+  text-align: center;
+  line-height:78rpx;
+}
+.search{
+  height:80rpx;
+  font-size:32rpx;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  flex:1;
+  background:#fff;
+  padding:10rpx 60rpx 10rpx 10rpx;
+  border-radius:10rpx;
+  position:relative;
+  transition:width 1s;
+}
+.search .input{
+  height:60rpx;
+  flex:1;
+  font-size:32rpx;
+}
+.search .search-icon{
+  padding:10rpx 10rpx 0;
+
+}
+.search .input-placeholder{
+  color:#ccc;
+  text-align:center;
+}
+.search .close-input{
+  position:absolute;
+  right:4rpx;
+  top:0;
+  padding:20rpx;
+  z-index:2;
+}
+
+.history .item:active,.city-item .item:active{
+  background:#eee;
+}
+
+.history{
+  padding:20rpx 20rpx 0;
+  /* border-bottom:1px solid #eee; */
+  padding-right:50rpx;
+}
+.history .item, .city-item .item{
+  display:inline-block;
+  padding:16rpx 0;
+  border:1px solid #eee;
+  font-size:28rpx;
+  border-radius:10rpx;
+  margin-bottom:20rpx;
+  width:30%;
+  text-align:center;
+}
+.history .item:nth-child(3n-1),.city-item .item:nth-child(3n-1){
+  margin-left:5%;
+  margin-right:5%;
+}
+.city{
+  padding:20rpx;
+  padding-bottom:0;
+  padding-right:50rpx;
+}
+.city-anchor{
+  padding-bottom: 20rpx;
+}
+.city-anchor text{
+  width:60rpx;
+  height:60rpx;
+  display:inline-block;
+  font-size:32rpx;
+  color:#fff;
+  background:#0f0;
+  border-radius: 50%;
+  text-align:center;
+  line-height:58rpx;
+}
+
+.sider-anchor-wrapper{
+  position:absolute;
+  top:0;
+  right: 0;
+  padding-top:120rpx;
+  font-size:20rpx;
+  color:#0f0;
+  width:40rpx;
+  height:100%;
+}
+.sider-anchor{
+  display: flex;
+  flex-direction:column;
+  text-align: center;
+  width:100%;
+  height:100%;
+}
+.sider-anchor-item{
+  flex:1;
+  line-height:40rpx;
+}
+
+.anchor-tips{
+  position: absolute;
+  left:0;
+  right:0;
+  top: 30%;
+  /* bottom: 0; */
+  margin:auto;
+  width:100rpx;
+  height:100rpx;
+  font-size:36rpx;
+  color:#fff;
+  background:#0f0;
+  border-radius: 50%;
+  text-align:center;
+  line-height:100rpx;
+}

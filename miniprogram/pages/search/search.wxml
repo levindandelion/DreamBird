@@ -1,0 +1,79 @@
+<view class="container">
+  <!-- 搜索框 -->
+  <view class='search-wrapper'>
+    <view class='search'>
+      <view class='search-icon'><van-icon name="search" /></view>
+      <input class="input {{isFocus ?'focus':''}}" 
+        placeholder="请输入城市" 
+        bindfocus='focus'
+        bindblur='blur'
+        bindinput='bindInput'
+        value='{{firstInput}}'
+      />
+      <view class='close-input' catchtap='clearInput' hidden='{{!showCancel}}'>
+        <van-icon name="close" />
+      </view>
+    </view>
+    <view class='cancel'  hidden='{{!showCancel}}'>
+      <view class='txt' catchtap='cancel'>取消</view>  
+    </view>
+  </view>
+
+  <scroll-view class="scroll-section" scroll-y 
+    scroll-into-view="{{curtAnchor}}" 
+    scroll-with-animation="{{true}}"
+    style="height: 100%"
+  >
+    <!-- 历史记录 -->
+    <view class='history'>
+      <view class='item' bindtap='getLocation'>定位
+        <view style='position:relative;display:inline-block;padding:14rpx;'>
+          <view style='position:absolute;top:0;left:0;'>
+            <van-icon name="location-o" /></view>
+          </view>
+        </view>
+      <view class='item' 
+      wx:for="{{history}}" 
+      wx:key="{{item}}"
+      data-name="{{item}}"
+      bindtap='tapHistoryItem'
+      >{{item}}</view>
+    </view>
+    <!-- 城市列表 -->
+    <view class='city'>
+      <block wx:for="{{cities}}" wx:key="{{item.anchor}}">
+        <view class='city-anchor' id="{{item.anchor}}" hidden='{{!item.cityList.length}}'>
+          <text>{{item.anchor}}</text>
+        </view>
+        <view class='city-item'>
+          <view 
+            class='item' 
+            wx:for="{{item.cityList}}" 
+            wx:key="{{subItem.name}}"  
+            wx:for-item="subItem"
+            data-name="{{subItem.name}}"
+            bindtap='tapCityItem'
+          >
+            {{subItem.name}}
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <!-- 侧边检索 -->
+  <view class='sider-anchor-wrapper'>
+    <view class='sider-anchor' 
+      bindtouchstart="touchStartAnchor"
+      bindtouchmove="touchMoveAnchor"
+      bindtouchend="touchEndAnchor"
+    >
+      <view class='sider-anchor-item' 
+        wx:for="{{cities}}" 
+        wx:key="{{index}}"
+        data-anchor="{{item.anchor}}"
+      >{{item.anchor}}</view>
+    </view>
+  </view>
+  <view class='anchor-tips' hidden='{{!curtAnchor}}'>{{curtAnchor}}</view>
+  
+</view>

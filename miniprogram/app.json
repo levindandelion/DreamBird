@@ -1,0 +1,21 @@
+{
+  "cloud": true,
+  "pages": [
+    "pages/index/index",
+    "pages/config/config",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0f0",
+    "navigationBarTitleText": "DreamBird",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "需要你的位置信息将用于定位城市"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
